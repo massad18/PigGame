@@ -16,7 +16,7 @@ import edu.up.cs301.game.util.Tickable;
 public class PigComputerPlayer extends GameComputerPlayer {
 
     PigLocalGame pigLocalGame = new PigLocalGame();
-    PigGameState pigGame = new PigGameState();
+    int player1 = playerNum;
     /**
      * ctor does nothing extra
      */
@@ -33,18 +33,19 @@ public class PigComputerPlayer extends GameComputerPlayer {
     @Override
     protected void receiveInfo(GameInfo info) {
         // TODO  You will implement this method
-        if (pigLocalGame.canMove(playerNum)) {
-            Random rand = new Random();
-            int randomNumber = rand.nextInt(2);
-            if (randomNumber == 0) {
-                PigHoldAction hold = new PigHoldAction(this);
-                game.sendAction(hold);
+        if (pigLocalGame.canMove(player1)) {
+            if (info instanceof PigGameState) {
+                Random rand = new Random();
+                int randomNumber = rand.nextInt(2);
+                if (randomNumber == 0) {
+                    PigHoldAction hold = new PigHoldAction(this);
+                    game.sendAction(hold);
+                    ((PigGameState) info).setPlayerTurn(player1);
+                } else {
+                    PigRollAction roll = new PigRollAction(this);
+                    game.sendAction(roll);
+                }
             }
-            else {
-                PigRollAction roll = new PigRollAction(this);
-                game.sendAction(roll);
-            }
-            pigGame.setPlayerTurn(playerNum);
         }
         else {
             return;

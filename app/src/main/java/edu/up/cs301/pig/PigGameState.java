@@ -50,11 +50,11 @@ public class PigGameState extends GameState {
     }
 
     void setPlayer0Score(int score) {
-        player0Score = score;
+        player0Score += score;
     }
 
     void setPlayer1Score(int score) {
-        player1Score = score;
+        player1Score += score;
     }
 
     void setRunningTotal(int total) {
