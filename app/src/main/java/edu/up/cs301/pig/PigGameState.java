@@ -12,11 +12,11 @@ public class PigGameState extends GameState {
     int runningTotal;
     int dieValue;
 
-    public PigGameState() {
+    PigGameState() {
         super();
     }
 
-    private PigGameState(PigGameState p) {
+    PigGameState(PigGameState p) {
         super();
         playerTurn = p.getPlayerTurn();
         player0Score = p.getPlayer0Score();
