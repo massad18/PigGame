@@ -105,7 +105,6 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
         }
         else if (button == holdButton) {
             PigHoldAction hold = new PigHoldAction(this);
-            pigGame.setPlayerTurn(player0);
             game.sendAction(hold);
         }
     }// onClick
@@ -138,5 +137,4 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
         holdButton.setOnClickListener(this);
 
     }//setAsGui
-
 }// class PigHumanPlayer

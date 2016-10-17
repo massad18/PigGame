@@ -69,6 +69,7 @@ public class PigLocalGame extends LocalGame {
                         pigGame.setPlayer1Score(total);
                     }
                     pigGame.setRunningTotal(1);
+                    pigGame.setPlayerTurn(i);
                 }
                 return true;
             }
@@ -100,7 +101,7 @@ public class PigLocalGame extends LocalGame {
             return ""+playerNames[0]+" has won the game with a score of "+pigGame.getPlayer0Score();
         }
         else if (pigGame.getPlayer1Score() >= 50) {
-            return ""+playerNames[1]+" has won the game with a score of "+pigGame.getPlayer0Score();
+            return ""+playerNames[1]+" has won the game with a score of "+pigGame.getPlayer1Score();
         }
         else {
             return null;
