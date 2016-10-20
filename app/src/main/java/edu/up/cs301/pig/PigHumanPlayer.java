@@ -38,6 +38,7 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
     PigLocalGame pigLocalGame = new PigLocalGame();
     PigGameState pigGame = new PigGameState();
     int player0 = playerNum;
+    private int count = pigLocalGame.getCount();
 
     // the android activity that we are running
     GameMainActivity myActivity;
@@ -68,6 +69,24 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
     @Override
     public void receiveInfo(GameInfo info) {
         //TODO You will implement this method to receive state objects from the game
+
+        if (playerNum == 0) {
+            if (count == 0) {
+                myActivity.changeTextColor(playerNameTextView, oppNameTextView);
+            }
+            else {
+                myActivity.changeTextColor(oppNameTextView, playerNameTextView);
+            }
+        }
+        else {
+            if (count == 0) {
+                myActivity.changeTextColor(oppNameTextView, playerNameTextView);
+            }
+            else {
+                myActivity.changeTextColor(playerNameTextView, oppNameTextView);
+            }
+        }
+
         if (pigLocalGame.canMove(player0)) {
             if (info instanceof PigGameState) {
                 playerScoreTextView.setText("" + ((PigGameState) info).getPlayer0Score());
@@ -94,14 +113,6 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
                         dieImageButton.setImageResource(R.drawable.face6);
                         break;
                 }
-
-                if (playerNum == 0) {
-                        myActivity.changeTextColor(playerNameTextView, oppNameTextView);
-                }
-                else {
-                        myActivity.changeTextColor(oppNameTextView, playerNameTextView);
-                }
-
             }
         }
     }//receiveInfo

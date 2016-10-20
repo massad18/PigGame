@@ -1,2 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/KeokiMassad/Desktop/&apos;16-&apos;17 First Semester Junior C/CS 301/PigGame1/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="886831dbda45ee955d20a73cceb99fbb87a4ba8c">
+        <dex dex="/Users/KeokiMassad/Desktop/&apos;16-&apos;17 First Semester Junior C/CS 301/PigGame1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c146da7f51145225ddd31801abce8f6ba4ea3a98/classes.dex" />
+    </item>
+    <item
+        jar="/Users/KeokiMassad/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="/Users/KeokiMassad/Desktop/&apos;16-&apos;17 First Semester Junior C/CS 301/PigGame1/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-v4-18.0.0_0735a01cd7cfff481a7cbd361712bb255d570ce3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/KeokiMassad/Desktop/&apos;16-&apos;17 First Semester Junior C/CS 301/PigGame1/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="22.0.1"
+        sha1="1a94adf82cd428bd908e7e8e6d9b0fda056d2a76">
+        <dex dex="/Users/KeokiMassad/Desktop/&apos;16-&apos;17 First Semester Junior C/CS 301/PigGame1/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_03c6f5ff65c3eb390bcae0ab9654b2d8bc67eb2a/classes.dex" />
+    </item>
+
+</items>

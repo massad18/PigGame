@@ -22,6 +22,7 @@ public class PigLocalGame extends LocalGame {
 
     PigGameState pigGame;
     GameAction myAction;
+    private int count = 0;
 
     /**
      * This ctor creates a new game state
@@ -63,6 +64,7 @@ public class PigLocalGame extends LocalGame {
                     if (val == 1) {
                         pigGame.setRunningTotal(val);
                         pigGame.setPlayerTurn(i);
+                        setCount();
                     } else {
                         pigGame.setRunningTotal(val);
                     }
@@ -77,6 +79,7 @@ public class PigLocalGame extends LocalGame {
                     }
                     pigGame.setRunningTotal(1);
                     pigGame.setPlayerTurn(i);
+                    setCount();
                 }
                 return true;
             }
@@ -115,4 +118,11 @@ public class PigLocalGame extends LocalGame {
         }
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount() {
+        count = 1 - count;
+    }
 }// class PigLocalGame
