@@ -62,7 +62,7 @@ public class PigGameState extends GameState {
             runningTotal = 0;
         }
         else {
-            runningTotal += total;
+            runningTotal = runningTotal + total;
         }
     }
 
