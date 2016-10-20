@@ -42,6 +42,8 @@ public class PigSmartComputer extends GameComputerPlayer {
         // TODO  You will implement this method
         if (pigLocalGame.canMove(player1)) {
             if (info instanceof PigGameState) {
+                curTotal = ((PigGameState) info).getRunningTotal();
+                curVal = ((PigGameState) info).getDieValue();
                 hold = new PigHoldAction(this);
                 roll = new PigRollAction(this);
                 if (player1 == 0) {
@@ -54,8 +56,6 @@ public class PigSmartComputer extends GameComputerPlayer {
                     oppScore = ((PigGameState) info).getPlayer1Score();
                     Choice(curScore,oppScore);
                 }
-                curTotal = ((PigGameState) info).getRunningTotal();
-                curVal = ((PigGameState) info).getDieValue();
             }
         }
         else {
