@@ -28,6 +28,8 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
     // These variables will reference widgets that will be modified during play
     private TextView    playerScoreTextView = null;
     private TextView    oppScoreTextView    = null;
+    private TextView    playerNameTextView  = null;
+    private TextView    oppNameTextView     = null;
     private TextView    turnTotalTextView   = null;
     private TextView    messageTextView     = null;
     private ImageButton dieImageButton      = null;
@@ -127,6 +129,8 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
         //Initialize the widget reference member variables
         this.playerScoreTextView = (TextView)activity.findViewById(R.id.yourScoreValue);
         this.oppScoreTextView    = (TextView)activity.findViewById(R.id.oppScoreValue);
+        this.playerNameTextView  = (TextView)activity.findViewById(R.id.yourScoreText);
+        this.oppNameTextView     = (TextView)activity.findViewById(R.id.oppScoreText);
         this.turnTotalTextView   = (TextView)activity.findViewById(R.id.turnTotalValue);
         this.messageTextView     = (TextView)activity.findViewById(R.id.messageTextView);
         this.dieImageButton      = (ImageButton)activity.findViewById(R.id.dieButton);
@@ -135,6 +139,13 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
         //Listen for button presses
         dieImageButton.setOnClickListener(this);
         holdButton.setOnClickListener(this);
+
+        if (pigLocalGame.canMove(player0)) {
+            myActivity.changeTextColor(playerNameTextView,oppNameTextView);
+        }
+        else {
+            myActivity.changeTextColor(oppNameTextView,playerNameTextView);
+        }
 
     }//setAsGui
 }// class PigHumanPlayer

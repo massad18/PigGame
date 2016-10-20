@@ -1,5 +1,8 @@
 package edu.up.cs301.pig;
 
+import android.widget.TextView;
+
+import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.infoMsg.GameState;
 
 /**
@@ -11,6 +14,7 @@ public class PigGameState extends GameState {
     int player1Score;
     int runningTotal;
     int dieValue;
+    PigLocalGame pigLocalGame;
 
     PigGameState() {
         super();

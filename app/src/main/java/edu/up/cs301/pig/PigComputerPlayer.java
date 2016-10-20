@@ -1,8 +1,16 @@
 package edu.up.cs301.pig;
 
+import android.graphics.Color;
+import android.os.Handler;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import edu.up.cs301.game.GameComputerPlayer;
 import java.util.Random;
 import edu.up.cs301.game.GameComputerPlayer;
+import edu.up.cs301.game.GameMainActivity;
+import edu.up.cs301.game.R;
 import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
 import edu.up.cs301.game.util.Tickable;
@@ -18,6 +26,9 @@ public class PigComputerPlayer extends GameComputerPlayer {
 
     PigLocalGame pigLocalGame = new PigLocalGame();
     int player1 = playerNum;
+    PigHoldAction hold;
+    PigRollAction roll;
+
     /**
      * actor does nothing extra
      */
@@ -39,13 +50,25 @@ public class PigComputerPlayer extends GameComputerPlayer {
             if (info instanceof PigGameState) {
                 Random rand = new Random();
                 int randomNumber = rand.nextInt(2);
+                hold = new PigHoldAction(this);
+                roll = new PigRollAction(this);
                 if (randomNumber == 0) {
-                    PigHoldAction hold = new PigHoldAction(this);
-                    game.sendAction(hold);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            game.sendAction(hold);
+                        }
+                    }, 2000);
                 }
                 else {
-                    PigRollAction roll = new PigRollAction(this);
-                    game.sendAction(roll);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            game.sendAction(roll);
+                        }
+                    }, 2000);
                 }
             }
         }

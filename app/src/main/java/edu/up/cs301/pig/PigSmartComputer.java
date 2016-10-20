@@ -1,8 +1,17 @@
 package edu.up.cs301.pig;
 
+import android.graphics.Color;
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
 import java.util.Random;
 
 import edu.up.cs301.game.GameComputerPlayer;
+import edu.up.cs301.game.GameMainActivity;
+import edu.up.cs301.game.R;
 import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
 import edu.up.cs301.game.util.Tickable;
@@ -49,12 +58,24 @@ public class PigSmartComputer extends GameComputerPlayer {
                 if (player1 == 0) {
                     curScore = ((PigGameState) info).getPlayer1Score();
                     oppScore = ((PigGameState) info).getPlayer0Score();
-                    Choice(curScore,oppScore);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Choice(curScore,oppScore);
+                        }
+                    }, 2000);
                 }
                 else {
                     curScore = ((PigGameState) info).getPlayer0Score();
                     oppScore = ((PigGameState) info).getPlayer1Score();
-                    Choice(curScore,oppScore);
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Choice(curScore,oppScore);
+                        }
+                    }, 2000);
                 }
             }
         }

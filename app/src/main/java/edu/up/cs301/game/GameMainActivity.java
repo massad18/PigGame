@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -25,10 +26,14 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
+
+import org.w3c.dom.Text;
+
 import edu.up.cs301.game.config.GameConfig;
 import edu.up.cs301.game.config.GamePlayerType;
 import edu.up.cs301.game.util.IPCoder;
 import edu.up.cs301.game.util.MessageBox;
+import edu.up.cs301.pig.PigGameState;
 
 /**
  * class GameMainActivity
@@ -75,6 +80,9 @@ View.OnClickListener {
 	 * contains the game configuration this activity will be used to initialize
 	 */
 	GameConfig config = null;
+
+	static public TextView player0TV;
+	static public TextView player1TV;
 
 	// Each of these is initialized to point to various GUI controls
 	TableLayout playerTable = null;
@@ -804,6 +812,11 @@ View.OnClickListener {
 	 */
 	public void doFinish(View v) {
 		finish();
+	}
+
+	public void changeTextColor(TextView tv0, TextView tv1) {
+		tv0.setTextColor(Color.RED);
+		tv1.setTextColor(Color.BLACK);
 	}
 }
 

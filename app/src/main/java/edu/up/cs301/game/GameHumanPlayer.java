@@ -11,6 +11,7 @@ import edu.up.cs301.game.infoMsg.TimerInfo;
 import edu.up.cs301.game.util.GameTimer;
 import edu.up.cs301.game.util.MessageBox;
 import edu.up.cs301.game.util.Tickable;
+import edu.up.cs301.pig.PigLocalGame;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -18,6 +19,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * class GameHumanPlayer
@@ -43,6 +45,11 @@ public abstract class GameHumanPlayer implements GamePlayer, Tickable {
 	private GameMainActivity myActivity; // the current activity
 	private GameTimer myTimer = new GameTimer(this); // my player's timer
 	private boolean gameOver; // whether the game is over
+
+	private TextView    playerNameTextView  = null;
+	private TextView    oppNameTextView     = null;
+
+	PigLocalGame pigLocalGame = new PigLocalGame();
 
 	/**
 	 * constructor
@@ -97,7 +104,11 @@ public abstract class GameHumanPlayer implements GamePlayer, Tickable {
 	 * knows what their game-position and opponents' names are.
 	 */
 	protected void initAfterReady() {
-		// by default, we do nothing
+		this.playerNameTextView  = (TextView)myActivity.findViewById(R.id.yourScoreText);
+		this.oppNameTextView     = (TextView)myActivity.findViewById(R.id.oppScoreText);
+
+		playerNameTextView.setText(allPlayerNames[0]);
+		oppNameTextView.setText(allPlayerNames[1]);
 	}
 	
 	/**
