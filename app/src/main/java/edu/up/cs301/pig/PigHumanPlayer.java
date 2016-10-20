@@ -28,8 +28,8 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
     // These variables will reference widgets that will be modified during play
     private TextView    playerScoreTextView = null;
     private TextView    oppScoreTextView    = null;
-    private TextView    playerNameTextView  = null;
-    private TextView    oppNameTextView     = null;
+    TextView    playerNameTextView  = null;
+    TextView    oppNameTextView     = null;
     private TextView    turnTotalTextView   = null;
     private TextView    messageTextView     = null;
     private ImageButton dieImageButton      = null;
@@ -40,7 +40,7 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
     int player0 = playerNum;
 
     // the android activity that we are running
-    private GameMainActivity myActivity;
+    GameMainActivity myActivity;
 
     /**
      * constructor does nothing extra
@@ -74,20 +74,34 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
                 oppScoreTextView.setText("" + ((PigGameState) info).getPlayer1Score());
                 turnTotalTextView.setText("" + ((PigGameState) info).getRunningTotal());
                 int curVal = ((PigGameState) info).getDieValue();
-                switch(curVal) {
-                    case 1: dieImageButton.setImageResource(R.drawable.face1);
+                switch (curVal) {
+                    case 1:
+                        dieImageButton.setImageResource(R.drawable.face1);
                         break;
-                    case 2: dieImageButton.setImageResource(R.drawable.face2);
+                    case 2:
+                        dieImageButton.setImageResource(R.drawable.face2);
                         break;
-                    case 3: dieImageButton.setImageResource(R.drawable.face3);
+                    case 3:
+                        dieImageButton.setImageResource(R.drawable.face3);
                         break;
-                    case 4: dieImageButton.setImageResource(R.drawable.face4);
+                    case 4:
+                        dieImageButton.setImageResource(R.drawable.face4);
                         break;
-                    case 5: dieImageButton.setImageResource(R.drawable.face5);
+                    case 5:
+                        dieImageButton.setImageResource(R.drawable.face5);
                         break;
-                    case 6: dieImageButton.setImageResource(R.drawable.face6);
+                    case 6:
+                        dieImageButton.setImageResource(R.drawable.face6);
                         break;
                 }
+
+                if (playerNum == 0) {
+                        myActivity.changeTextColor(playerNameTextView, oppNameTextView);
+                }
+                else {
+                        myActivity.changeTextColor(oppNameTextView, playerNameTextView);
+                }
+
             }
         }
     }//receiveInfo
@@ -139,13 +153,5 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
         //Listen for button presses
         dieImageButton.setOnClickListener(this);
         holdButton.setOnClickListener(this);
-
-        if (pigLocalGame.canMove(player0)) {
-            myActivity.changeTextColor(playerNameTextView,oppNameTextView);
-        }
-        else {
-            myActivity.changeTextColor(oppNameTextView,playerNameTextView);
-        }
-
     }//setAsGui
 }// class PigHumanPlayer

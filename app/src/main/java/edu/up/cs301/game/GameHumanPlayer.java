@@ -46,8 +46,8 @@ public abstract class GameHumanPlayer implements GamePlayer, Tickable {
 	private GameTimer myTimer = new GameTimer(this); // my player's timer
 	private boolean gameOver; // whether the game is over
 
-	private TextView    playerNameTextView  = null;
-	private TextView    oppNameTextView     = null;
+	public TextView    playerNameTextView  = null;
+	public TextView    oppNameTextView     = null;
 
 	PigLocalGame pigLocalGame = new PigLocalGame();
 
@@ -347,6 +347,5 @@ public abstract class GameHumanPlayer implements GamePlayer, Tickable {
 	protected void timerTicked() {
 		// by default, do nothing
 	}
-
 }// class GameHumanPlayer
 

@@ -38,7 +38,7 @@ public abstract class GameComputerPlayer implements GamePlayer, Tickable {
 	private GameMainActivity myActivity; // the game's main activity, set only
 			// this game is connected to the GUI
 	private GameTimer myTimer = new GameTimer(this); // my timer
-	
+
 	/**
 	 * Returns this game's timer.
 	 * 

@@ -2,7 +2,9 @@ package edu.up.cs301.pig;
 
 import android.widget.TextView;
 
+import edu.up.cs301.game.GameHumanPlayer;
 import edu.up.cs301.game.GameMainActivity;
+import edu.up.cs301.game.R;
 import edu.up.cs301.game.infoMsg.GameState;
 
 /**
@@ -15,6 +17,11 @@ public class PigGameState extends GameState {
     int runningTotal;
     int dieValue;
     PigLocalGame pigLocalGame;
+
+    GameMainActivity myActivity;
+    GameHumanPlayer gameHumanPlayer;
+    TextView playerNameTextView;
+    TextView oppNameTextView;
 
     PigGameState() {
         super();

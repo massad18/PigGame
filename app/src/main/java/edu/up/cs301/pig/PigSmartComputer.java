@@ -33,8 +33,9 @@ public class PigSmartComputer extends GameComputerPlayer {
     int oppScore;
     PigRollAction roll;
     PigHoldAction hold;
+
     /**
-     * ctor does nothing extra
+     * actor does nothing extra
      */
     public PigSmartComputer(String name) {
         super(name);
@@ -112,7 +113,7 @@ public class PigSmartComputer extends GameComputerPlayer {
     // Move method for losing
     protected void Move (int Max, int atLeast) {
         if (50 - oppScore <= 6) {
-            if (curTotal >= Max || curScore + curTotal == 50) {
+            if (curTotal >= Max || curScore + curTotal >= 50) {
                 game.sendAction(hold);
             }
             else {
@@ -132,7 +133,7 @@ public class PigSmartComputer extends GameComputerPlayer {
     // Move method for tied or winning
     protected void Move (int atLeast) {
         if (50 - oppScore <= 6) {
-            if (curScore + curTotal == 50) {
+            if (curScore + curTotal >= 50) {
                 game.sendAction(hold);
             }
             else {

@@ -2,6 +2,7 @@ package edu.up.cs301.pig;
 
 import edu.up.cs301.game.GameComputerPlayer;
 import edu.up.cs301.game.GameHumanPlayer;
+import edu.up.cs301.game.GameMainActivity;
 import edu.up.cs301.game.GamePlayer;
 import edu.up.cs301.game.LocalGame;
 import edu.up.cs301.game.actionMsg.GameAction;
@@ -20,9 +21,7 @@ import java.util.Random;
 public class PigLocalGame extends LocalGame {
 
     PigGameState pigGame;
-    PigHumanPlayer pigHP;
-    PigComputerPlayer pigCP;
-    PigSmartComputer pigSCP;
+    GameAction myAction;
 
     /**
      * This ctor creates a new game state
@@ -36,7 +35,7 @@ public class PigLocalGame extends LocalGame {
      * can the player with the given id take an action right now?
      */
     @Override
-    protected boolean canMove(int playerIdx) {
+    public boolean canMove(int playerIdx) {
         //TODO  You will implement this method
         if (pigGame.getPlayerTurn() == playerIdx) {
             return true;
@@ -53,9 +52,11 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         //TODO  You will implement this method
+        myAction = action;
+
         for (int i = 0; i < 2; i ++) {
             if (canMove(i)) {
-                if (action instanceof PigRollAction) {
+                if (myAction instanceof PigRollAction) {
                     Random rand = new Random();
                     int val = rand.nextInt(6) + 1;
                     pigGame.setDieValue(val);
@@ -66,7 +67,7 @@ public class PigLocalGame extends LocalGame {
                         pigGame.setRunningTotal(val);
                     }
                 }
-                if (action instanceof PigHoldAction) {
+                if (myAction instanceof PigHoldAction) {
                     int total = pigGame.getRunningTotal();
                     if (i == 0) {
                         pigGame.setPlayer0Score(total);
