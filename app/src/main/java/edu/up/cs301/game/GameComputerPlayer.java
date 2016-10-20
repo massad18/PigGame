@@ -11,6 +11,7 @@ import edu.up.cs301.game.infoMsg.TimerInfo;
 import edu.up.cs301.game.util.GameTimer;
 import edu.up.cs301.game.util.MessageBox;
 import edu.up.cs301.game.util.Tickable;
+import edu.up.cs301.pig.PigHumanPlayer;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -111,7 +112,6 @@ public abstract class GameComputerPlayer implements GamePlayer, Tickable {
 	 * knows what their game-position and opponents' names are.
 	 */
 	protected void initAfterReady() {
-		// by default, we do nothing
 	}
 	
 	/**

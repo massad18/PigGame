@@ -16,12 +16,6 @@ public class PigGameState extends GameState {
     int player1Score;
     int runningTotal;
     int dieValue;
-    PigLocalGame pigLocalGame;
-
-    GameMainActivity myActivity;
-    GameHumanPlayer gameHumanPlayer;
-    TextView playerNameTextView;
-    TextView oppNameTextView;
 
     PigGameState() {
         super();
@@ -34,6 +28,7 @@ public class PigGameState extends GameState {
         player1Score = p.getPlayer1Score();
         runningTotal = p.getRunningTotal();
         dieValue = p.getDieValue();
+
     }
 
     int getPlayerTurn() {

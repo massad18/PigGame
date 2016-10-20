@@ -37,8 +37,8 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
 
     PigLocalGame pigLocalGame = new PigLocalGame();
     PigGameState pigGame = new PigGameState();
-    int player0 = playerNum;
-    private int count = pigLocalGame.getCount();
+    private int player0 = playerNum;
+    private int count;
 
     // the android activity that we are running
     GameMainActivity myActivity;
@@ -70,21 +70,11 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
     public void receiveInfo(GameInfo info) {
         //TODO You will implement this method to receive state objects from the game
 
-        if (playerNum == 0) {
-            if (count == 0) {
-                myActivity.changeTextColor(playerNameTextView, oppNameTextView);
-            }
-            else {
-                myActivity.changeTextColor(oppNameTextView, playerNameTextView);
-            }
+        if (count == 0) {
+            myActivity.changeTextColor(playerNameTextView, oppNameTextView);
         }
         else {
-            if (count == 0) {
-                myActivity.changeTextColor(oppNameTextView, playerNameTextView);
-            }
-            else {
-                myActivity.changeTextColor(playerNameTextView, oppNameTextView);
-            }
+            myActivity.changeTextColor(oppNameTextView, playerNameTextView);
         }
 
         if (pigLocalGame.canMove(player0)) {
@@ -96,6 +86,7 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
                 switch (curVal) {
                     case 1:
                         dieImageButton.setImageResource(R.drawable.face1);
+                        setCount();
                         break;
                     case 2:
                         dieImageButton.setImageResource(R.drawable.face2);
@@ -133,6 +124,7 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
         else if (button == holdButton) {
             PigHoldAction hold = new PigHoldAction(this);
             game.sendAction(hold);
+            setCount();
         }
     }// onClick
 
@@ -165,4 +157,8 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
         dieImageButton.setOnClickListener(this);
         holdButton.setOnClickListener(this);
     }//setAsGui
+
+    void setCount() {
+        count = 1 - count;
+    }
 }// class PigHumanPlayer
